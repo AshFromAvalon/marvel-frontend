@@ -3,8 +3,9 @@ import "./style.characters.scss";
 // Dependencies
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Search from "../../components/Search/index";
 
-const Characters = () => {
+const Characters = ({ searchName, setSearchName }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [limit, setLimit] = useState(15);
@@ -13,7 +14,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://react-marvel-backend.herokuapp.com/characters?limit=${limit}&skip=${skip}`
+          `https://react-marvel-backend.herokuapp.com/characters?limit=${limit}&skip=${skip}&name=${searchName}`
         );
         console.log(response.data);
         setData(response.data);
@@ -23,7 +24,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, [limit, skip]);
+  }, [limit, skip, searchName]);
 
   const handleNextClick = () => {
     setLimit(limit + 15);
@@ -36,6 +37,7 @@ const Characters = () => {
   };
   return !isLoading ? (
     <div className="characters-container">
+      <Search setSearchName={setSearchName} />
       <div className="characters-wrapper">
         {data.map((character, index) => {
           return (

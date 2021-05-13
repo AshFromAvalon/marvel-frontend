@@ -3,8 +3,9 @@ import "./style.comics.scss";
 // Dependencies
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Search from "../../components/Search/index";
 
-const Comics = () => {
+const Comics = ({ searchTitle, setSearchTitle }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [limit, setLimit] = useState(15);
@@ -13,7 +14,7 @@ const Comics = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://react-marvel-backend.herokuapp.com/comics?limit=${limit}&skip=${skip}`
+        `https://react-marvel-backend.herokuapp.com/comics?limit=${limit}&skip=${skip}&title=${searchTitle}`
       );
 
       console.log(response.data);
@@ -21,7 +22,7 @@ const Comics = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [limit, skip]);
+  }, [limit, skip, searchTitle]);
 
   const handleNextClick = () => {
     setLimit(limit + 15);
@@ -35,6 +36,7 @@ const Comics = () => {
 
   return !isLoading ? (
     <div className="comics-container">
+      <Search setSearchTitle={setSearchTitle} />
       <div className="comics-wrapper">
         {data.map((comics, index) => {
           return (

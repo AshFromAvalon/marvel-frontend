@@ -9,7 +9,7 @@
   .characters-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     max-width: 1080px;
   }
@@ -17,6 +17,7 @@
   .character-card {
     width: 200px;
     margin-bottom: 20px;
+    margin-right: 15px;
 
     .character-card-image-container {
       min-height: 200px;
