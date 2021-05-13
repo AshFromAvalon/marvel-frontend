@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Containers
 import Characters from "../../containers/Characters/index";
+import Comics from "../../containers/Comics/index";
 
 // Components
 import Navbar from "../Navbar/index";
@@ -17,6 +18,9 @@ function App() {
       <Navbar />
 
       <Switch>
+        <Route path="/comics">
+          <Comics />
+        </Route>
         <Route path="/">
           <Characters />
         </Route>

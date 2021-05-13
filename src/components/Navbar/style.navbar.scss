@@ -1,0 +1,21 @@
+@import "../../styles/styles.scss";
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  .navbar-container {
+    @include container;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .navbar-logo {
+      height: 50px;
+    }
+  }
+}

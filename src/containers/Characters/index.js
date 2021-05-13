@@ -35,21 +35,26 @@ const Characters = () => {
     setSkip(skip - 15);
   };
   return !isLoading ? (
-    <div style={{ display: "flex", width: "50vw", flexWrap: "wrap" }}>
-      {data.map((character, index) => {
-        return (
-          <>
-            <img
-              style={{ height: 50 }}
-              key={index}
-              src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-              alt=""
-            />
-            <p>{character.name}</p>
-          </>
-        );
-      })}
-
+    <div className="characters-container">
+      <div className="characters-wrapper">
+        {data.map((character, index) => {
+          return (
+            <div className="character-card" key={index}>
+              <div className="character-card-image-container">
+                <img
+                  className="character-card-image"
+                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+                  alt=""
+                />
+              </div>
+              <p className="character-card-name">{character.name}</p>
+              <p className="character-card-description">
+                {character.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
       <div>
         {limit > 15 && <button onClick={handlePreviousClick}>précédent</button>}
         {limit < 100 && <button onClick={handleNextClick}>suivant</button>}
