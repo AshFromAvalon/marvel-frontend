@@ -1,17 +1,40 @@
 import "./style.search.scss";
 
+// Depencies
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 const Search = ({ setSearchName, setSearchTitle }) => {
+  const searchIcon = <FontAwesomeIcon icon={faSearch} />;
+
+  const [placeholder, setPlaceholder] = useState("Chercher par nom");
+
   const handleChange = (event) => {
     setSearchName && setSearchName(event.target.value);
     setSearchTitle && setSearchTitle(event.target.value);
   };
 
+  const handleFocus = () => {
+    setPlaceholder("");
+  };
+
+  const handleBlur = () => {
+    setPlaceholder("Chercher");
+  };
+
   return (
-    <input
-      type="search"
-      className="searchBar"
-      onChange={(event) => handleChange(event)}
-    />
+    <div className="search-box">
+      <div className="search-icon">{searchIcon}</div>
+      <input
+        type="search"
+        placeholder={placeholder}
+        className="searchBar"
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      />
+    </div>
   );
 };
 

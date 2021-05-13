@@ -3,7 +3,10 @@ import "./style.comics.scss";
 // Dependencies
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+// Components
 import Search from "../../components/Search/index";
+import ComicsCard from "../../components/ComicsCard/index";
 
 const Comics = ({ searchTitle, setSearchTitle }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,27 +39,19 @@ const Comics = ({ searchTitle, setSearchTitle }) => {
 
   return !isLoading ? (
     <div className="comics-container">
-      <Search setSearchTitle={setSearchTitle} />
+      <div className="search-container">
+        <Search setSearchTitle={setSearchTitle} />
+      </div>
       <div className="comics-wrapper">
         {data.map((comics, index) => {
-          return (
-            <div className="comics-card" key={index}>
-              <div className="comics-card-image-container">
-                <img
-                  className="comics-card-image"
-                  src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-                  alt=""
-                />
-              </div>
-              <p className="comics-card-name">{comics.title}</p>
-              <p className="comics-card-description">{comics.description}</p>
-            </div>
-          );
+          return <ComicsCard comics={comics} key={index} />;
         })}
       </div>
       <div>
         {limit > 15 && <button onClick={handlePreviousClick}>précédent</button>}
-        {limit < 100 && <button onClick={handleNextClick}>suivant</button>}
+        {limit < 100 && data.length >= 15 && (
+          <button onClick={handleNextClick}>suivant</button>
+        )}
       </div>
     </div>
   ) : (

@@ -1,0 +1,43 @@
+@import "../../styles/styles.scss";
+
+.comics-card {
+  width: 200px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  .comics-card-image-container {
+    min-height: 200px;
+
+    .comics-card-image {
+      height: 300px;
+      width: 100%;
+      object-fit: cover;
+      object-position: left;
+    }
+  }
+
+  .comics-card-name {
+    font-family: $font-main;
+    color: white;
+
+    padding: 5px 0;
+  }
+
+  .comics-card-description-container {
+    background-color: RGBA(0, 0, 0, 0.7);
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .comics-card-description {
+      font-family: $font-main;
+      font-size: 0.8rem;
+      color: white;
+    }
+  }
+}

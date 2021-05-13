@@ -7,6 +7,8 @@
   position: fixed;
   left: 0;
   top: 0;
+  border-bottom: 1px solid $prim-grey;
+  z-index: 100;
 
   .navbar-container {
     @include container;
