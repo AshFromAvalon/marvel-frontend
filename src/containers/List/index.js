@@ -8,7 +8,15 @@ import axios from "axios";
 import Search from "../../components/Search/index";
 import Card from "../../components/Card/index";
 
-const Characters = ({ searchName, setSearchName, endPoint }) => {
+const Characters = ({
+  searchName,
+  setSearchName,
+  searchTitle,
+  setSearchTitle,
+  endPoint,
+  searchBy,
+  saveToCookie,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [limit, setLimit] = useState(15);
@@ -17,8 +25,11 @@ const Characters = ({ searchName, setSearchName, endPoint }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://react-marvel-backend.herokuapp.com/${endPoint}?limit=${limit}&skip=${skip}&name=${searchName}`
+          `https://react-marvel-backend.herokuapp.com/${endPoint}?limit=${limit}&skip=${skip}&${searchBy}=${
+            searchBy === "name" ? searchName : searchTitle
+          } `
         );
+        console.log(data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -41,11 +52,22 @@ const Characters = ({ searchName, setSearchName, endPoint }) => {
   return !isLoading ? (
     <div className="list-container" name="top">
       <div className="search-container">
-        <Search setSearchName={setSearchName} />
+        <Search
+          setSearchName={setSearchName}
+          setSearchTitle={setSearchTitle}
+          searchBy={searchBy}
+        />
       </div>
       <div className="list-wrapper">
         {data.map((item, index) => {
-          return <Card key={index} data={item} type={endPoint} />;
+          return (
+            <Card
+              key={index}
+              data={item}
+              type={endPoint}
+              saveToCookie={saveToCookie}
+            />
+          );
         })}
       </div>
       <div className="btn-list-container">

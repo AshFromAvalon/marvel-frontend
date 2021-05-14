@@ -1,0 +1,30 @@
+@import "../../styles/styles.scss";
+
+.fav-container {
+  margin: 110px 30px 0 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $bg-grey;
+  color: white;
+  border: 1px solid red;
+
+  .container {
+    @include container;
+
+    .fav-cat {
+      font-family: $font-main;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+  }
+
+  .fav-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1080px;
+  }
+}
