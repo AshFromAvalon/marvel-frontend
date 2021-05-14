@@ -7,9 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const CharacterCard = ({ data, type }) => {
-  console.log(data);
   const [isShown, setIsShown] = useState(false);
   const heartIcon = <FontAwesomeIcon icon={faHeart} />;
+
+  const Position = () => {
+    const res = data.thumbnail.path.match("image_not_available")
+      ? "left"
+      : "center";
+    return res;
+  };
 
   return (
     <div
@@ -25,7 +31,7 @@ const CharacterCard = ({ data, type }) => {
           ${data.thumbnail.path}.${data.thumbnail.extension}
         )`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: Position(),
           }}
         >
           {isShown && (

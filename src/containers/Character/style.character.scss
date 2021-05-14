@@ -51,7 +51,6 @@
   .comics-wrapper {
     @include container;
     display: flex;
-    border: 1px dashed red;
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 100%;
