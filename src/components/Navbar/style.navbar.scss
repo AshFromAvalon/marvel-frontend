@@ -7,7 +7,6 @@
   position: fixed;
   left: 0;
   top: 0;
-  border-bottom: 1px solid $prim-grey;
   z-index: 100;
 
   .navbar-container {
@@ -18,6 +17,31 @@
 
     .navbar-logo {
       height: 50px;
+    }
+
+    .nav {
+      margin-left: 20px;
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+
+      .nav-link {
+        color: white;
+        font-family: $font-main;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin-top: 20px;
+        width: 200px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .active {
+        background-color: $bg-grey;
+      }
     }
   }
 }

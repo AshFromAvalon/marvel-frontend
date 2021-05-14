@@ -1,7 +1,7 @@
 @import "../../styles/styles.scss";
 
 body {
-  background-color: black;
+  background-color: $bg-grey;
 }
 
 .comics-container {
@@ -9,7 +9,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: black;
+  background-color: $bg-grey;
 
   .search-container {
     height: 100px;
