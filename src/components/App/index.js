@@ -14,22 +14,20 @@ import Favorites from "../../containers/Favorites/index";
 import Navbar from "../Navbar/index";
 
 function App() {
-  const favs = localStorage.getItem("fav");
-
   const [searchName, setSearchName] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
-  const [fav, setFav] = useState(JSON.parse(favs) || []);
+  const [fav, setFav] = useState(JSON.parse(localStorage.getItem("fav")) || []);
+
   const saveToCookie = (data) => {
-    if (fav) {
+    const exist = fav.some((item) => item._id === data._id);
+
+    if (exist) {
+      alert("Alreday added to fav");
+    } else {
       const newFav = [...fav];
       newFav.push(data);
       setFav(newFav);
-      localStorage.setItem("fav", JSON.stringify(fav));
-    } else {
-      const newFav = [];
-      newFav.push(data);
-      setFav(newFav);
-      localStorage.setItem("fav", JSON.stringify(fav));
+      localStorage.setItem("fav", JSON.stringify(newFav));
     }
   };
 

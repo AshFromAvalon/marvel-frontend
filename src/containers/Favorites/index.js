@@ -10,7 +10,7 @@ const Favorites = (fav) => {
   const characters = data.filter((item) => item.type === "characters");
   const comics = data.filter((item) => item.type === "comics");
 
-  return data.length >= 1 ? (
+  return data && data[0] ? (
     <div className="fav-container">
       <div className="container">
         <div className="fav-cat">Characters</div>
@@ -32,7 +32,9 @@ const Favorites = (fav) => {
       </div>
     </div>
   ) : (
-    <div className="fav-container">NO FAVS YET</div>
+    <div className="fav-container">
+      <div className="no-fav">NO FAVS YET...</div>
+    </div>
   );
 };
 
