@@ -6,8 +6,8 @@ import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Containers
-import Characters from "../../containers/Characters/index";
-import Comics from "../../containers/Comics/index";
+import List from "../../containers/List/index";
+import Character from "../../containers/Character/index";
 
 // Components
 import Navbar from "../Navbar/index";
@@ -21,11 +21,22 @@ function App() {
       <Navbar />
 
       <Switch>
+        <Route path="/comics/:id">
+          <Character />
+        </Route>
         <Route path="/comics">
-          <Comics searchTitle={searchTitle} setSearchTitle={setSearchTitle} />
+          <List
+            endPoint="comics"
+            searchName={searchName}
+            setSearchName={setSearchName}
+          />
         </Route>
         <Route path="/">
-          <Characters searchName={searchName} setSearchName={setSearchName} />
+          <List
+            endPoint="characters"
+            searchName={searchName}
+            setSearchName={setSearchName}
+          />
         </Route>
       </Switch>
     </Router>

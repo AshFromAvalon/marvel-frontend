@@ -1,4 +1,4 @@
-import "./style.characters.scss";
+import "./style.list.scss";
 
 // Dependencies
 import { useState, useEffect } from "react";
@@ -6,9 +6,9 @@ import axios from "axios";
 
 // Components
 import Search from "../../components/Search/index";
-import CharacterCard from "../../components/CharacterCard/index";
+import Card from "../../components/Card/index";
 
-const Characters = ({ searchName, setSearchName }) => {
+const Characters = ({ searchName, setSearchName, endPoint }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [limit, setLimit] = useState(15);
@@ -17,7 +17,7 @@ const Characters = ({ searchName, setSearchName }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://react-marvel-backend.herokuapp.com/characters?limit=${limit}&skip=${skip}&name=${searchName}`
+          `https://react-marvel-backend.herokuapp.com/${endPoint}?limit=${limit}&skip=${skip}&name=${searchName}`
         );
         console.log(response.data);
         setData(response.data);
@@ -40,20 +40,25 @@ const Characters = ({ searchName, setSearchName }) => {
   };
 
   return !isLoading ? (
-    <div className="characters-container">
+    <div className="list-container" name="top">
       <div className="search-container">
         <Search setSearchName={setSearchName} />
       </div>
-      <div>{data.length}</div>
-      <div className="characters-wrapper">
-        {data.map((character, index) => {
-          return <CharacterCard key={index} character={character} />;
+      <div className="list-wrapper">
+        {data.map((item, index) => {
+          return <Card key={index} data={item} type={endPoint} />;
         })}
       </div>
-      <div>
-        {limit > 15 && <button onClick={handlePreviousClick}>précédent</button>}
+      <div className="btn-list-container">
+        {limit > 15 && (
+          <a href="#top" onClick={handlePreviousClick} className="btn-list">
+            <div>{"< précédent"}</div>
+          </a>
+        )}
         {limit < 100 && data.length >= 15 && (
-          <button onClick={handleNextClick}>suivant</button>
+          <a href="#top" onClick={handleNextClick} className="btn-list">
+            <div>{"Suivant >"}</div>
+          </a>
         )}
       </div>
     </div>
