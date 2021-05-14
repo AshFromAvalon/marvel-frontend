@@ -1,0 +1,60 @@
+@import "../../styles/styles.scss";
+
+.character-container {
+  margin: 110px 30px 0 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: $bg-grey;
+  color: white;
+
+  .character-wrapper {
+    @include container;
+    display: flex;
+
+    .character-image {
+      height: 300px;
+    }
+
+    .character-content {
+      font-family: $font-main;
+      margin-left: 30px;
+
+      .character-name {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+      .character-description {
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+      .cta-fav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        border: 1px solid $prim-grey;
+        width: 250px;
+        height: 50px;
+        color: $prim-grey;
+      }
+    }
+  }
+  .comics-title {
+    @include container;
+    display: flex;
+    font-family: $font-main;
+    font-size: 1.5rem;
+    margin: 30px;
+  }
+
+  .comics-wrapper {
+    @include container;
+    display: flex;
+    border: 1px dashed red;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1080px;
+  }
+}

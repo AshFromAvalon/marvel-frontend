@@ -11,7 +11,9 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <img src={logo} alt="" className="navbar-logo" />
+        <Link to="/">
+          <img src={logo} alt="" className="navbar-logo" />
+        </Link>
         <nav className="nav">
           <Link
             to="/"

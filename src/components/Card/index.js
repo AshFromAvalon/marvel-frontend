@@ -50,7 +50,11 @@ const CharacterCard = ({ data, type }) => {
           )}
         </div>
       </div>
-      <p className="card-name">{data.name}</p>
+      {type === "comics" ? (
+        <p className="card-name">{data.title}</p>
+      ) : (
+        <p className="card-name">{data.name}</p>
+      )}
     </div>
   );
 };

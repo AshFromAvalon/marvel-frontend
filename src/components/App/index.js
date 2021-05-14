@@ -21,10 +21,10 @@ function App() {
       <Navbar />
 
       <Switch>
-        <Route path="/comics/:id">
+        <Route path="/comics/:id/">
           <Character />
         </Route>
-        <Route path="/comics">
+        <Route path="/comics/">
           <List
             endPoint="comics"
             searchName={searchName}

@@ -19,7 +19,6 @@ const Characters = ({ searchName, setSearchName, endPoint }) => {
         const response = await axios.get(
           `https://react-marvel-backend.herokuapp.com/${endPoint}?limit=${limit}&skip=${skip}&name=${searchName}`
         );
-        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -27,7 +26,7 @@ const Characters = ({ searchName, setSearchName, endPoint }) => {
       }
     };
     fetchData();
-  }, [limit, skip, searchName]);
+  }, [limit, skip, searchName, endPoint]);
 
   const handleNextClick = () => {
     setLimit(limit + 15);
