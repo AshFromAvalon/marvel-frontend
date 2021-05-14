@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const CharacterCard = ({ data, type, saveToCookie }) => {
+const CharacterCard = ({ data, type, saveToCookie, isFav }) => {
   const [isShown, setIsShown] = useState(false);
   const location = useLocation();
   console.log(location);
@@ -52,7 +52,7 @@ const CharacterCard = ({ data, type, saveToCookie }) => {
                     See more
                   </Link>
                 )}
-                {location.path != "/favorites/" && (
+                {!isFav && (
                   <div
                     className="btn-fav"
                     onClick={() => saveToCookie({ ...data, type: type })}

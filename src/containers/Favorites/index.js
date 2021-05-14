@@ -16,13 +16,17 @@ const Favorites = (fav) => {
         <div className="fav-cat">Characters</div>
         <div className="fav-wrapper">
           {characters.map((item, index) => {
-            return <Card key={index} data={item} type={item.type} />;
+            return (
+              <Card key={index} data={item} type={item.type} isFav={true} />
+            );
           })}
         </div>
         <div className="fav-cat">Comics</div>
         <div className="fav-wrapper">
           {comics.map((item, index) => {
-            return <Card key={index} data={item} type={item.type} />;
+            return (
+              <Card key={index} data={item} type={item.type} isFave={true} />
+            );
           })}
         </div>
       </div>
