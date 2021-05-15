@@ -43,10 +43,10 @@ const Card = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
               {data.description ? (
                 <div className="card-description-content">
                   <p className="card-description-title">Description: </p>
-                  <p
+                  <div
                     className="card-description"
                     dangerouslySetInnerHTML={{ __html: data.description }}
-                  ></p>
+                  ></div>
                 </div>
               ) : (
                 <p className="card-description">NO DESCRIPTION YET</p>
