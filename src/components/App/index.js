@@ -1,13 +1,13 @@
 import "./style.app.scss";
 
 // Dependencies
-import Cookies from "js-cookie";
 import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Containers
-import List from "../../containers/List/index";
+import Characters from "../../containers/Characters/index";
 import Character from "../../containers/Character/index";
+import Comics from "../../containers/Comics/index";
 import Favorites from "../../containers/Favorites/index";
 
 // Components
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar setSearchTitle={setSearchTitle} setSearchName={setSearchName} />
 
       <Switch>
         <Route path="/comics/:id/">
@@ -43,24 +43,18 @@ function App() {
           <Favorites fav={fav} />
         </Route>
         <Route path="/comics/">
-          <List
-            endPoint="comics"
-            searchBy="title"
+          <Comics
+            type="comics"
             searchTitle={searchTitle}
             setSearchTitle={setSearchTitle}
-            fav={fav}
-            setFav={setFav}
             saveToCookie={saveToCookie}
           />
         </Route>
         <Route path="/">
-          <List
-            endPoint="characters"
-            searchBy="name"
+          <Characters
+            type="characters"
             searchName={searchName}
             setSearchName={setSearchName}
-            fav={fav}
-            setFav={setFav}
             saveToCookie={saveToCookie}
           />
         </Route>

@@ -4,9 +4,15 @@ import "./style.navbar.scss";
 import logo from "../../assets/images/Marvel_Logo.png";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setSearchName, setSearchTitle }) => {
   const location = useLocation();
-  console.log(location.pathname);
+
+  const handleClickChar = () => {
+    setSearchName("");
+  };
+  const handleClickComics = () => {
+    setSearchTitle("");
+  };
 
   return (
     <div className="navbar">
@@ -17,6 +23,7 @@ const Navbar = () => {
         <nav className="nav">
           <Link
             to="/"
+            onClick={handleClickChar}
             className={
               location.pathname === "/" ? "nav-link active" : "nav-link"
             }
@@ -25,6 +32,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/comics/"
+            onClick={handleClickComics}
             className={
               location.pathname === "/comics/" ? "nav-link active" : "nav-link"
             }
