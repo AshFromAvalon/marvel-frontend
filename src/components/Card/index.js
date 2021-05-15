@@ -6,8 +6,16 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const Card = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
+const Card = ({
+  setFav,
+  data,
+  type,
+  saveToLocalStorage,
+  setShowAlert,
+  isFav,
+}) => {
   const [isShown, setIsShown] = useState(false);
+
   const heartIcon = <FontAwesomeIcon icon={faHeart} />;
 
   const Position = () => {
@@ -18,7 +26,16 @@ const Card = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
   };
 
   const addToFav = () => {
-    saveToCookie({ ...data, type: type }) && setShowAlert(true);
+    saveToLocalStorage({ ...data, type: type }) && setShowAlert(true);
+  };
+
+  const removeFromFav = () => {
+    const newFav = JSON.parse(localStorage.getItem("fav"));
+    const itemToRemove = newFav.find((item) => item._id === data._id);
+    const index = newFav.indexOf(itemToRemove);
+    newFav.splice(index, 1);
+    setFav(newFav);
+    localStorage.setItem("fav", JSON.stringify(newFav));
   };
 
   return (
@@ -57,7 +74,11 @@ const Card = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
                     See more
                   </Link>
                 )}
-                {!isFav && (
+                {isFav ? (
+                  <div className="btn-seemore" onClick={removeFromFav}>
+                    unfav
+                  </div>
+                ) : (
                   <div className="btn-fav" onClick={addToFav}>
                     {heartIcon}
                   </div>

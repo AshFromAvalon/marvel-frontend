@@ -2,7 +2,7 @@ import "./style.app.scss";
 
 // Dependencies
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Containers
 import Characters from "../../containers/Characters/index";
@@ -21,7 +21,7 @@ function App() {
   const [searchTitle, setSearchTitle] = useState("");
   const [fav, setFav] = useState(JSON.parse(localStorage.getItem("fav")) || []);
   const [showAlert, setShowAlert] = useState(false);
-  const saveToCookie = (data) => {
+  const saveToLocalStorage = (data) => {
     const exist = fav.some((item) => item._id === data._id);
 
     if (exist) {
@@ -42,17 +42,20 @@ function App() {
       <FavAlert showAlert={showAlert} setShowAlert={setShowAlert} />
       <Switch>
         <Route path="/comics/:id/">
-          <Character saveToCookie={saveToCookie} setShowAlert={setShowAlert} />
+          <Character
+            saveToLocalStorage={saveToLocalStorage}
+            setShowAlert={setShowAlert}
+          />
         </Route>
         <Route path="/favorites/">
-          <Favorites fav={fav} />
+          <Favorites fav={fav} setFav={setFav} />
         </Route>
         <Route path="/comics/">
           <Comics
             type="comics"
             searchTitle={searchTitle}
             setSearchTitle={setSearchTitle}
-            saveToCookie={saveToCookie}
+            saveToLocalStorage={saveToLocalStorage}
             setShowAlert={setShowAlert}
             limit={limit}
             setLimit={setLimit}
@@ -65,7 +68,7 @@ function App() {
             type="characters"
             searchName={searchName}
             setSearchName={setSearchName}
-            saveToCookie={saveToCookie}
+            saveToLocalStorage={saveToLocalStorage}
             setShowAlert={setShowAlert}
             limit={limit}
             setLimit={setLimit}

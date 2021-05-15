@@ -8,7 +8,7 @@ import axios from "axios";
 // Components
 import Card from "../../components/Card/index";
 
-const Character = ({ saveToCookie, setShowAlert }) => {
+const Character = ({ saveToLocalStorage, setShowAlert }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -26,7 +26,7 @@ const Character = ({ saveToCookie, setShowAlert }) => {
   }, []);
 
   const addToFav = () => {
-    saveToCookie({ ...data, type: "characters" }) && setShowAlert(true);
+    saveToLocalStorage({ ...data, type: "characters" }) && setShowAlert(true);
   };
 
   return !isLoading ? (
@@ -55,7 +55,7 @@ const Character = ({ saveToCookie, setShowAlert }) => {
               key={index}
               data={item}
               type="comics"
-              saveToCookie={saveToCookie}
+              saveToLocalStorage={saveToLocalStorage}
               setShowAlert={setShowAlert}
             />
           );

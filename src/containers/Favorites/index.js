@@ -2,14 +2,11 @@ import "./style.favorites.scss";
 
 import Card from "../../components/Card/index";
 
-const Favorites = (fav) => {
-  const data = fav.fav;
+const Favorites = ({ fav, setFav }) => {
+  const characters = fav.filter((item) => item.type === "characters");
+  const comics = fav.filter((item) => item.type === "comics");
 
-  const characters = data.filter((item) => item.type === "characters");
-  const comics = data.filter((item) => item.type === "comics");
-  console.log(characters);
-
-  return data && data[0] ? (
+  return fav && fav[0] ? (
     <div className="fav-container">
       <div className="container">
         {characters.length > 0 && (
@@ -18,7 +15,13 @@ const Favorites = (fav) => {
             <div className="fav-wrapper">
               {characters.map((item, index) => {
                 return (
-                  <Card key={index} data={item} type={item.type} isFav={true} />
+                  <Card
+                    key={index}
+                    data={item}
+                    type={item.type}
+                    isFav={true}
+                    setFav={setFav}
+                  />
                 );
               })}
             </div>
@@ -35,7 +38,9 @@ const Favorites = (fav) => {
                     key={index}
                     data={item}
                     type={item.type}
-                    isFave={true}
+                    isFav={true}
+                    fav={fav}
+                    setFav={setFav}
                   />
                 );
               })}

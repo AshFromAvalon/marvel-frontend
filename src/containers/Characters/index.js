@@ -15,7 +15,7 @@ const Characters = ({
   setSkip,
   searchName,
   setSearchName,
-  saveToCookie,
+  saveToLocalStorage,
   setShowAlert,
   type,
 }) => {
@@ -63,7 +63,7 @@ const Characters = ({
                 key={index}
                 data={item}
                 type={type}
-                saveToCookie={saveToCookie}
+                saveToLocalStorage={saveToLocalStorage}
                 setShowAlert={setShowAlert}
               />
             );

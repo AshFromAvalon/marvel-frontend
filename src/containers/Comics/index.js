@@ -15,7 +15,7 @@ const Comics = ({
   setSkip,
   searchTitle,
   setSearchTitle,
-  saveToCookie,
+  saveToLocalStorage,
   setShowAlert,
   type,
 }) => {
@@ -63,7 +63,7 @@ const Comics = ({
                 key={index}
                 data={item}
                 type={type}
-                saveToCookie={saveToCookie}
+                saveToLocalStorage={saveToLocalStorage}
                 setShowAlert={setShowAlert}
               />
             );
