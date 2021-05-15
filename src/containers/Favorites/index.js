@@ -1,4 +1,3 @@
-import CharacterCard from "../../components/Card";
 import "./style.favorites.scss";
 
 import Card from "../../components/Card/index";
@@ -19,12 +18,7 @@ const Favorites = (fav) => {
             <div className="fav-wrapper">
               {characters.map((item, index) => {
                 return (
-                  <Card
-                    key={index}
-                    data={item}
-                    type={item.type}
-                    isFave={true}
-                  />
+                  <Card key={index} data={item} type={item.type} isFav={true} />
                 );
               })}
             </div>
