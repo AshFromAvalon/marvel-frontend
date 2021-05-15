@@ -5,12 +5,14 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const Search = ({ setSearchName, setSearchTitle }) => {
+const Search = ({ setSearchName, setSearchTitle, setLimit, setSkip }) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
 
   const [placeholder, setPlaceholder] = useState("Chercher par nom");
 
   const handleChange = (event) => {
+    setLimit(15);
+    setSkip(0);
     setSearchName && setSearchName(event.target.value);
     setSearchTitle && setSearchTitle(event.target.value);
   };

@@ -9,6 +9,10 @@ import Search from "../../components/Search/index";
 import Card from "../../components/Card/index";
 
 const Characters = ({
+  limit,
+  setLimit,
+  skip,
+  setSkip,
   searchName,
   setSearchName,
   saveToCookie,
@@ -17,8 +21,6 @@ const Characters = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
-  const [limit, setLimit] = useState(15);
-  const [skip, setSkip] = useState(0);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,7 +49,11 @@ const Characters = ({
   return !isLoading ? (
     <div className="list-container" name="top">
       <div className="search-container">
-        <Search setSearchName={setSearchName} />
+        <Search
+          setSearchName={setSearchName}
+          setLimit={setLimit}
+          setSkip={setSkip}
+        />
       </div>
       <div className="list-wrapper">
         {data.length > 0 ? (

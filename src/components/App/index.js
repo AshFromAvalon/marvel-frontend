@@ -15,6 +15,8 @@ import Navbar from "../Navbar/index";
 import FavAlert from "../favAlert/index";
 
 function App() {
+  const [limit, setLimit] = useState(15);
+  const [skip, setSkip] = useState(0);
   const [searchName, setSearchName] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
   const [fav, setFav] = useState(JSON.parse(localStorage.getItem("fav")) || []);
@@ -52,6 +54,10 @@ function App() {
             setSearchTitle={setSearchTitle}
             saveToCookie={saveToCookie}
             setShowAlert={setShowAlert}
+            limit={limit}
+            setLimit={setLimit}
+            skip={skip}
+            setSkip={setSkip}
           />
         </Route>
         <Route path="/">
@@ -61,6 +67,10 @@ function App() {
             setSearchName={setSearchName}
             saveToCookie={saveToCookie}
             setShowAlert={setShowAlert}
+            limit={limit}
+            setLimit={setLimit}
+            skip={skip}
+            setSkip={setSkip}
           />
         </Route>
       </Switch>
