@@ -8,7 +8,7 @@ import axios from "axios";
 // Components
 import Card from "../../components/Card/index";
 
-const Character = () => {
+const Character = ({ saveToCookie, setShowAlert }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -25,6 +25,10 @@ const Character = () => {
     fetchData();
   }, []);
 
+  const addToFav = () => {
+    saveToCookie({ ...data, type: "characters" }) && setShowAlert(true);
+  };
+
   return !isLoading ? (
     <div className="character-container">
       <div className="character-wrapper">
@@ -36,7 +40,9 @@ const Character = () => {
         <div className="character-content">
           <div className="character-name">{data.name}</div>
           <div className="character-description">{data.description}</div>
-          <div className="cta-fav">Ajouter à mes favoris</div>
+          <div className="cta-fav" onClick={addToFav}>
+            Ajouter à mes favoris
+          </div>
         </div>
       </div>
       <div className="comics-title">

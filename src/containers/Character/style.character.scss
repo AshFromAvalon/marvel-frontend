@@ -37,6 +37,9 @@
         width: 250px;
         height: 50px;
         color: $prim-grey;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

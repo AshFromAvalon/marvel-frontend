@@ -2,14 +2,12 @@ import "./style.card.scss";
 
 // Dependencies
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const CharacterCard = ({ data, type, saveToCookie, isFav }) => {
+const CharacterCard = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
   const [isShown, setIsShown] = useState(false);
-  const location = useLocation();
-  console.log(location);
   const heartIcon = <FontAwesomeIcon icon={faHeart} />;
 
   const Position = () => {
@@ -17,6 +15,10 @@ const CharacterCard = ({ data, type, saveToCookie, isFav }) => {
       ? "left"
       : "center";
     return res;
+  };
+
+  const addToFav = () => {
+    saveToCookie({ ...data, type: "characters" }) && setShowAlert(true);
   };
 
   return (
@@ -53,10 +55,7 @@ const CharacterCard = ({ data, type, saveToCookie, isFav }) => {
                   </Link>
                 )}
                 {!isFav && (
-                  <div
-                    className="btn-fav"
-                    onClick={() => saveToCookie({ ...data, type: type })}
-                  >
+                  <div className="btn-fav" onClick={addToFav}>
                     {heartIcon}
                   </div>
                 )}

@@ -1,0 +1,36 @@
+@import "../../styles/styles.scss";
+
+.fav-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  background-color: red;
+  position: fixed;
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+  top: 92px;
+  right: 0;
+  z-index: 100;
+}
+
+.close {
+  position: relative;
+  top: -15px;
+  left: -20px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}

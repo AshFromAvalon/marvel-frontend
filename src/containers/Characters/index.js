@@ -8,7 +8,13 @@ import axios from "axios";
 import Search from "../../components/Search/index";
 import Card from "../../components/Card/index";
 
-const Characters = ({ searchName, setSearchName, saveToCookie, type }) => {
+const Characters = ({
+  searchName,
+  setSearchName,
+  saveToCookie,
+  setShowAlert,
+  type,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [limit, setLimit] = useState(15);
@@ -51,6 +57,7 @@ const Characters = ({ searchName, setSearchName, saveToCookie, type }) => {
               data={item}
               type={type}
               saveToCookie={saveToCookie}
+              setShowAlert={setShowAlert}
             />
           );
         })}

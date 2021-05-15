@@ -12,32 +12,35 @@ import Favorites from "../../containers/Favorites/index";
 
 // Components
 import Navbar from "../Navbar/index";
+import FavAlert from "../favAlert/index";
 
 function App() {
   const [searchName, setSearchName] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
   const [fav, setFav] = useState(JSON.parse(localStorage.getItem("fav")) || []);
-
+  const [showAlert, setShowAlert] = useState(false);
   const saveToCookie = (data) => {
     const exist = fav.some((item) => item._id === data._id);
 
     if (exist) {
       alert("Alreday added to fav");
+      return false;
     } else {
       const newFav = [...fav];
       newFav.push(data);
       setFav(newFav);
       localStorage.setItem("fav", JSON.stringify(newFav));
+      return true;
     }
   };
 
   return (
     <Router>
       <Navbar setSearchTitle={setSearchTitle} setSearchName={setSearchName} />
-
+      <FavAlert showAlert={showAlert} setShowAlert={setShowAlert} />
       <Switch>
         <Route path="/comics/:id/">
-          <Character />
+          <Character saveToCookie={saveToCookie} setShowAlert={setShowAlert} />
         </Route>
         <Route path="/favorites/">
           <Favorites fav={fav} />
@@ -48,6 +51,7 @@ function App() {
             searchTitle={searchTitle}
             setSearchTitle={setSearchTitle}
             saveToCookie={saveToCookie}
+            setShowAlert={setShowAlert}
           />
         </Route>
         <Route path="/">
@@ -56,6 +60,7 @@ function App() {
             searchName={searchName}
             setSearchName={setSearchName}
             saveToCookie={saveToCookie}
+            setShowAlert={setShowAlert}
           />
         </Route>
       </Switch>
