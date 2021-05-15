@@ -50,17 +50,23 @@ const Characters = ({
         <Search setSearchName={setSearchName} />
       </div>
       <div className="list-wrapper">
-        {data.map((item, index) => {
-          return (
-            <Card
-              key={index}
-              data={item}
-              type={type}
-              saveToCookie={saveToCookie}
-              setShowAlert={setShowAlert}
-            />
-          );
-        })}
+        {data.length > 0 ? (
+          data.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                data={item}
+                type={type}
+                saveToCookie={saveToCookie}
+                setShowAlert={setShowAlert}
+              />
+            );
+          })
+        ) : (
+          <div className="no-res">
+            <p>NO RESULTS</p>
+          </div>
+        )}
       </div>
       <div className="btn-list-container">
         {limit > 15 && (
