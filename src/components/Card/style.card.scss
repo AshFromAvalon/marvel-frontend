@@ -19,7 +19,6 @@
   .card-name {
     font-family: $font-main;
     color: white;
-
     padding: 10px 0;
   }
 
@@ -31,6 +30,12 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+
+    .card-description-content {
+      max-height: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .card-description {
       font-family: $font-main;
       font-size: 0.8rem;

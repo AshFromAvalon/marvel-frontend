@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const CharacterCard = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
+const Card = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
   const [isShown, setIsShown] = useState(false);
   const heartIcon = <FontAwesomeIcon icon={faHeart} />;
 
@@ -41,9 +41,12 @@ const CharacterCard = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
           {isShown && (
             <div className="card-description-container">
               {data.description ? (
-                <div>
+                <div className="card-description-content">
                   <p className="card-description-title">Description: </p>
-                  <p className="card-description">{data.description}</p>
+                  <p
+                    className="card-description"
+                    dangerouslySetInnerHTML={{ __html: data.description }}
+                  ></p>
                 </div>
               ) : (
                 <p className="card-description">NO DESCRIPTION YET</p>
@@ -73,4 +76,4 @@ const CharacterCard = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
   );
 };
 
-export default CharacterCard;
+export default Card;
