@@ -18,7 +18,7 @@ const CharacterCard = ({ data, type, saveToCookie, setShowAlert, isFav }) => {
   };
 
   const addToFav = () => {
-    saveToCookie({ ...data, type: "characters" }) && setShowAlert(true);
+    saveToCookie({ ...data, type: type }) && setShowAlert(true);
   };
 
   return (

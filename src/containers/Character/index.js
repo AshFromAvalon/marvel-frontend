@@ -50,7 +50,15 @@ const Character = ({ saveToCookie, setShowAlert }) => {
       </div>
       <div className="comics-wrapper">
         {data.comics.map((item, index) => {
-          return <Card key={index} data={item} type="comics" />;
+          return (
+            <Card
+              key={index}
+              data={item}
+              type="comics"
+              saveToCookie={saveToCookie}
+              setShowAlert={setShowAlert}
+            />
+          );
         })}
       </div>
     </div>
