@@ -48,13 +48,12 @@ const Comics = ({
 
   return !isLoading ? (
     <div className="list-container" name="top">
-      <div className="search-container">
-        <Search
-          setSearchTitle={setSearchTitle}
-          setLimit={setLimit}
-          setSkip={setSkip}
-        />
-      </div>
+      <Search
+        suggestions={data.map((item) => item.title)}
+        setSearchTitle={setSearchTitle}
+        setLimit={setLimit}
+        setSkip={setSkip}
+      />
       <div className="list-wrapper">
         {data.length > 0 ? (
           data.map((item, index) => {

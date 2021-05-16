@@ -48,13 +48,12 @@ const Characters = ({
 
   return !isLoading ? (
     <div className="list-container" name="top">
-      <div className="search-container">
-        <Search
-          setSearchName={setSearchName}
-          setLimit={setLimit}
-          setSkip={setSkip}
-        />
-      </div>
+      <Search
+        suggestions={data.map((item) => item.name)}
+        setSearchName={setSearchName}
+        setLimit={setLimit}
+        setSkip={setSkip}
+      />
       <div className="list-wrapper">
         {data.length > 0 ? (
           data.map((item, index) => {

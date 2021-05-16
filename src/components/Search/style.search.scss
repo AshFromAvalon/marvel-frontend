@@ -1,27 +1,63 @@
 @import "../../styles/styles.scss";
 
-.search-box {
-  height: 80%;
-  width: 98%;
+.search-container {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 1080px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  margin: 10px 0;
 
-  .search-icon {
-    color: $prim-grey;
-    font-size: 1.5rem;
-    position: absolute;
-  }
-  .searchBar {
-    border: none;
-    outline: none;
+  .search-box {
     height: 80%;
     width: 100%;
-    background-color: $bg-grey;
+    display: flex;
+    align-items: center;
+
+    .search-icon {
+      color: $prim-grey;
+      font-size: 1.5rem;
+      position: absolute;
+    }
+    .searchBar {
+      border: none;
+      outline: none;
+      height: 80%;
+      width: 100%;
+      background-color: $bg-grey;
+      border-bottom: 1px solid $prim-grey;
+      font-family: $font-main;
+      font-weight: 300;
+      font-size: 1.8rem;
+      padding-left: 40px;
+      color: $prim-grey;
+    }
+  }
+  .suggestions {
+    padding: 20px 30px;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
     border-bottom: 1px solid $prim-grey;
-    font-family: $font-main;
-    font-weight: 300;
-    font-size: 1.8rem;
-    padding-left: 40px;
-    color: $prim-grey;
+
+    li {
+      font-family: $font-main;
+      padding: 0.5rem;
+      color: white;
+      &:hover {
+        background-color: $prim-grey;
+        color: black;
+        cursor: pointer;
+        font-weight: 700;
+      }
+    }
+    .suggestion-active {
+      background-color: $prim-grey;
+      color: black;
+      cursor: pointer;
+      font-weight: 700;
+    }
   }
 }

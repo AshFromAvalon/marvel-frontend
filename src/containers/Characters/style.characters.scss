@@ -11,16 +11,6 @@ body {
   flex-direction: column;
   background-color: $bg-grey;
 
-  .search-container {
-    height: 100px;
-    width: 100%;
-    max-width: 1080px;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
   .list-wrapper {
     display: flex;
     flex-wrap: wrap;
