@@ -2,6 +2,7 @@ import "./style.search.scss";
 
 // Depencies
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,13 +14,18 @@ const Search = ({
   suggestions,
 }) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
+  const location = useLocation();
 
-  const [placeholder, setPlaceholder] = useState("Chercher par nom");
+  const [placeholder, setPlaceholder] = useState(
+    `Search by ${location.pathname === "/comics/" ? "title" : "name"}`
+  );
   const handleFocus = () => {
     setPlaceholder("");
   };
   const handleBlur = () => {
-    setPlaceholder("Chercher");
+    setPlaceholder(
+      `Search by ${location.pathname === "/comics/" ? "title" : "name"}`
+    );
   };
 
   const [state, setState] = useState({
