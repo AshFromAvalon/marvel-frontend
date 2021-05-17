@@ -39,6 +39,8 @@
         color: $prim-grey;
         &:hover {
           cursor: pointer;
+          color: white;
+          border-color: white;
         }
       }
     }
