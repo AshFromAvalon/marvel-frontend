@@ -1,0 +1,18 @@
+@import "../../styles//styles.scss";
+
+.loading-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  font-size: 3rem;
+  color: $prim-grey;
+  p {
+    margin-top: 15px;
+    font-family: $font-main;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $prim-grey;
+  }
+}

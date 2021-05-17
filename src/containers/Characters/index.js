@@ -7,6 +7,7 @@ import axios from "axios";
 // Components
 import Search from "../../components/Search/index";
 import Card from "../../components/Card/index";
+import Loading from "../../components/Loading/index";
 
 const Characters = ({
   limit,
@@ -87,7 +88,9 @@ const Characters = ({
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div className="list-container">
+      <Loading />
+    </div>
   );
 };
 
