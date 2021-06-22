@@ -56,7 +56,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com/) and [
 $ git@github.com:AshFromAvalon/marvel-frontend.git
 
 # Go into the repository
-$ cd vinted-front
+$ cd marvel-frontend
 
 # Install dependencies
 $ yarn install
