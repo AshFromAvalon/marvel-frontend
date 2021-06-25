@@ -14,7 +14,7 @@
 ## General Info
 
 This project is technical test simulation.
-Constraints was to build a BAck-end with the provided API endpoints and a front-end with imposed feature in a limiyed amount of time (3 days).
+Constraints was to build a Back-end with the provided API endpoints and a front-end with imposed feature in a limiyed amount of time (3 days).
 
 ## Key Features
 
