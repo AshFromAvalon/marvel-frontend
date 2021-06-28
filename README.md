@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Marvel 
+![image](https://user-images.githubusercontent.com/71220636/122914154-a4c7b180-d35a-11eb-9ac5-b2d53798a3d3.png)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of content 
 
-### `yarn start`
+* [General Info](#general-info)
+* [Key Features](#key-features)
+* [Demo](#demo)
+* [Technologies](#technologies)
+* [How to use](#how-to-use)
+* [Improvements](#improvements)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## General Info
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This project is technical test simulation.
+Constraints was to build a Back-end with the provided API endpoints and a front-end with imposed feature in a limiyed amount of time (3 days).
 
-### `yarn test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Add to / Remove from favorites
+* Search with autocomplete
+* Pagination
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Demo 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Front end is hosted on Netlify: [click here to try it](https://thomas-lebihan-vinted-front.netlify.app/). 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Manage favorites
 
-### `yarn eject`
+![Marvel-2](https://user-images.githubusercontent.com/71220636/122913993-7649d680-d35a-11eb-8355-312ce8b84a45.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Autocomplete with keyboard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Marvel-1](https://user-images.githubusercontent.com/71220636/122913960-6a5e1480-d35a-11eb-8904-32a1ed4b2370.gif)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was bootstrapped with [Create React App](https://thomas-lebihan-marvel-front.netlify.app/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* react version: 17.0.2
+* sass version: 1.32.12
+* axios version: 0.21.1
+* react-router-dom version: 5.2.0
+* js-cookie version: 2.2.1
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## How To Use
+To clone and run this application, you'll need [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com/)) installed on your computer. From your command line:
 
-### Analyzing the Bundle Size
+```diff
+# Clone this repository
+$ git@github.com:AshFromAvalon/marvel-frontend.git
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# Go into the repository
+$ cd marvel-frontend
 
-### Making a Progressive Web App
+# Install dependencies
+$ yarn install
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+# Run the app
+$ yarn start
+```
 
-### Advanced Configuration
+## Improvements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Responsive design
+* Autocomplete
