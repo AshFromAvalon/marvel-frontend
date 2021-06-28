@@ -25,7 +25,7 @@ Constraints was to build a Back-end with the provided API endpoints and a front-
 
 ## Demo 
 
-Front end is hosted on Netlify: [click here to try it](https://thomas-lebihan-vinted-front.netlify.app/). 
+Front end is hosted on Netlify: [click here to try it](https://thomas-lebihan-marvel-front.netlify.app/). 
 
 #### Manage favorites
 
