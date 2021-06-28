@@ -15,8 +15,10 @@ import Navbar from "../Navbar/index";
 import FavAlert from "../favAlert/index";
 
 function App() {
-  const [limit, setLimit] = useState(15);
-  const [skip, setSkip] = useState(0);
+  const [charactersLimit, setCharactersLimit] = useState(15);
+  const [charactersSkip, setCharactersSkip] = useState(0);
+  const [comicsLimit, setComicsLimit] = useState(15);
+  const [comicsSkip, setComicsSkip] = useState(0);
   const [searchName, setSearchName] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
   const [fav, setFav] = useState(JSON.parse(localStorage.getItem("fav")) || []);
@@ -57,10 +59,10 @@ function App() {
             setSearchTitle={setSearchTitle}
             saveToLocalStorage={saveToLocalStorage}
             setShowAlert={setShowAlert}
-            limit={limit}
-            setLimit={setLimit}
-            skip={skip}
-            setSkip={setSkip}
+            limit={comicsLimit}
+            setLimit={setComicsLimit}
+            skip={comicsSkip}
+            setSkip={setComicsSkip}
           />
         </Route>
         <Route path="/">
@@ -70,10 +72,10 @@ function App() {
             setSearchName={setSearchName}
             saveToLocalStorage={saveToLocalStorage}
             setShowAlert={setShowAlert}
-            limit={limit}
-            setLimit={setLimit}
-            skip={skip}
-            setSkip={setSkip}
+            limit={charactersLimit}
+            setLimit={setCharactersLimit}
+            skip={charactersSkip}
+            setSkip={setCharactersSkip}
           />
         </Route>
       </Switch>
